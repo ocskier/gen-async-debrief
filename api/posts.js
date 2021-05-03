@@ -23,10 +23,6 @@ class API {
   // https://www.sitepoint.com/introduction-to-the-fetch-api/
   // https://developers.google.com/web/updates/2015/03/introduction-to-fetch
   async getInitialPosts() {
-    // use either traditional promise handling with .then and .catch or more modern async
-    // handling with async await to make a fetch to the above api
-    // to return post data for our app and set the data to the _posts property
-    // console log an error if there is one
     try {
       const response = await fetch(this.url, this.options);
       const postData = await response.json();
@@ -45,10 +41,8 @@ class API {
       }, 1000);
     });
   }
-
   addPost(post) {
     return new Promise((resolve, reject) => {
-      // add the new post data to the posts property array
       this._posts.push(post);
       console.log('Post was created!');
       setTimeout(() => {
@@ -64,10 +58,6 @@ class API {
       const deletedPost = this._posts.pop();
       console.log('Last Post was deleted!');
       setTimeout(() => {
-        // resolve the Promise with the deletedPost if successful
-        // by checking the condition (deletedPost) to check if its not null
-        // or undefined falsy value
-        // reject with an error if there is one
         deletedPost
           ? resolve(deletedPost)
           : reject(new Error(`Error: something went wrong!`));
@@ -76,8 +66,10 @@ class API {
   }
 }
 
+// create an instance of our API
 const api = new API();
 
+// getting the initial data for our post app for a sandbox
 const init = async () => {
   await api.getInitialPosts();
 };
