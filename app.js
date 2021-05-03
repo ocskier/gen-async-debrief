@@ -2,7 +2,7 @@
 class API {
   constructor() {
     this._url = 'https://dummyapi.io/data/api/post?limit=5'; // post endpoint limit 5
-    this._app_id = '608ff65ecfb4e068c46f3038'; // had to signup for a app id key
+    this._app_id = '608ff65ecfb4e068c46f3038'; // had to signup for an app id key
     this._options = {
       headers: { 'app-id': this._app_id }, // we have to add the cred to the headers of the req
     };
