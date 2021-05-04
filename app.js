@@ -103,13 +103,14 @@ const addANewPost = async () => {
   const postInput = prompt('What would you like to post?').trim();
   if (firstInput && lastInput && postInput) {
     try {
-      await api.addPost({
+      const newPost = await api.addPost({
         owner: {
           firstName: firstInput,
           lastName: lastInput,
         },
         text: postInput,
       });
+      console.log(newPost);
       const currentPosts = await api.getPosts();
       console.log(`-----------------`);
       currentPosts.forEach((post) => {
