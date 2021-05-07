@@ -120,7 +120,7 @@ const addANewPost = async () => {
         printPostRow(post);
       });
       console.log(`-----------------`);
-    } catch {
+    } catch(err) {
       document.write(err);
     }
     // api
@@ -173,7 +173,7 @@ const deleteAPost = async () => {
       printPostRow(post);
     });
     console.log(`-----------------`);
-  } catch {
+  } catch(err) {
     document.write(err);
   }
   // api
