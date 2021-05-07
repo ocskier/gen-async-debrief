@@ -28,6 +28,7 @@ class API {
       const postData = await response.json();
       console.log('Retrieved Posts from API!');
       this._posts = postData.data;
+      return this.posts
     } catch (err) {
       console.log(err);
     }
