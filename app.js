@@ -81,7 +81,7 @@ const start = async () => {
       printPostRow(post);
     });
     console.log(`-----------------`);
-  } catch {
+  } catch(err) {
     document.write(err);
   }
 
