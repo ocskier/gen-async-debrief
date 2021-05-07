@@ -44,13 +44,15 @@ class API {
   }
   addPost(post) {
     return new Promise((resolve, reject) => {
-      this._posts.push(post);
-      console.log('Post was created!');
-      setTimeout(() => {
-        post
-          ? resolve(post)
-          : reject(new Error(`Error: something went wrong!`));
-      }, 500);
+      if (post) {  
+        this._posts.push(post);
+        console.log('Post was created!');
+        setTimeout(() => {
+          resolve(post);
+        }, 500);
+      } else {
+        reject(new Error(`Error: something went wrong!`));
+      }
     });
   }
 
