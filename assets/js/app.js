@@ -4,29 +4,30 @@ const api = new API();
 const start = async () => {
   try {
     await api.getInitialPosts();
+
     const currentPosts = await api.getPosts();
     console.log(`-----------------`);
     currentPosts.forEach((post) => {
       printPostRow(post);
     });
     console.log(`-----------------`);
-  } catch(err) {
+
+    // api
+    //   .getPosts()
+    //   .then((currentPosts) => {
+    //     console.log(currentPosts);
+    //     console.log(`-----------------`);
+    //     currentPosts.forEach((post) => {
+    //       printPostRow(post);
+    //     });
+    //     console.log(`-----------------`);
+    //   })
+    //   .catch((err) => {
+    //     document.write(err);
+    //   });
+  } catch (err) {
     document.write(err);
   }
-
-  // api
-  //   .getPosts()
-  //   .then((currentPosts) => {
-  //     console.log(currentPosts);
-  //     console.log(`-----------------`);
-  //     currentPosts.forEach((post) => {
-  //       printPostRow(post);
-  //     });
-  //     console.log(`-----------------`);
-  //   })
-  //   .catch((err) => {
-  //     document.write(err);
-  //   });
 };
 
 const addANewPost = async () => {
