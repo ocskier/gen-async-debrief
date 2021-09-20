@@ -1,8 +1,8 @@
 // A class for interacting with our https://dummyapi.io/ data
 class API {
   constructor() {
-    this._url = 'https://dummyapi.io/data/api/post?limit=5'; // post endpoint limit 5
-    this._app_id = '608ff65ecfb4e068c46f3038'; // had to signup for an app id key
+    this._url = 'https://dummyapi.io/data/v1/post?limit=5'; // post endpoint limit 5
+    this._app_id = '6147f7ef54f6a659ea3fb59c'; // had to signup for an app id key
     this._options = {
       headers: { 'app-id': this._app_id }, // we have to add the cred to the headers of the req
     };
@@ -210,6 +210,7 @@ const deleteAPost = async () => {
 const printPostRow = (post) => {
   console.log(`Left By: ${post.owner.firstName} ${post.owner.lastName}`);
   console.log(`Message: ${post.text}`);
+  console.log('-----------------');
 };
 
 document
