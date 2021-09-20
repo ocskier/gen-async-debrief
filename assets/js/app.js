@@ -44,6 +44,8 @@ const addANewPost = async () => {
       });
       console.log(newPost);
       const currentPosts = await api.getPosts();
+      // adding this line in to clear out the container in the html
+      document.getElementById('postsCtn').innerHTML = '';
       console.log(`-----------------`);
       currentPosts.forEach((post) => {
         printPostRow(post);
@@ -70,6 +72,8 @@ const addANewPost = async () => {
     //     });
     //   });
     //
+    // below would be chaining example
+    // 
     // api
     //   .addPost({
     //     owner: {
@@ -97,12 +101,14 @@ const deleteAPost = async () => {
     const removedPost = await api.deletePost();
     console.log(removedPost);
     const currentPosts = await api.getPosts();
+    // adding this line in to clear out the container in the html
+    document.getElementById('postsCtn').innerHTML = '';
     console.log(`-----------------`);
     currentPosts.forEach((post) => {
       printPostRow(post);
     });
     console.log(`-----------------`);
-  } catch(err) {
+  } catch (err) {
     document.write(err);
   }
   // api
@@ -120,6 +126,8 @@ const deleteAPost = async () => {
   //   .catch((err) => {
   //     document.write(err);
   //   });
+  //
+  //  below would be chaining example
   //
   // api
   //   .deletePost()
@@ -140,6 +148,12 @@ const printPostRow = (post) => {
   console.log(`Left By: ${post.owner.firstName} ${post.owner.lastName}`);
   console.log(`Message: ${post.text}`);
   console.log('-----------------');
+  // adding this in to update the html as well to each post
+  document.getElementById('postsCtn').innerHTML +=
+    `<p>Left By: ${post.owner.firstName} ${post.owner.lastName}</p>` +
+    `<p>Message: ${post.text}</p>` +
+    `<p>-----------------</p>`;
+  
 };
 
 document

@@ -26,9 +26,10 @@ class API {
     try {
       const response = await fetch(this.url, this.options);
       const postData = await response.json();
-      console.log('Retrieved Posts from API!', postData);
+      console.log('Retrieved Posts from API!');
+      console.log(postData);
       this._posts = postData.data;
-      return this.posts;
+      return;
     } catch (err) {
       console.log(err);
     }
@@ -51,7 +52,7 @@ class API {
           resolve(post);
         }, 500);
       } else {
-        reject(new Error(`Error: something went wrong!`));
+        reject(new Error(`Error: Couldn't post a note!`));
       }
     });
   }
@@ -63,7 +64,7 @@ class API {
       setTimeout(() => {
         deletedPost
           ? resolve(deletedPost)
-          : reject(new Error(`Error: something went wrong!`));
+          : reject(new Error(`Error: Couldn't delete a note!`));
       }, 500);
     });
   }
